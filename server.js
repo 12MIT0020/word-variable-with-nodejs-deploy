@@ -10,7 +10,7 @@ var port = process.env.PORT || 3000;
 	
 	app.get('*', function (req, res) {
 		//res.send('hello world')
-   res.sendFile(path.join(__dirname + '/public'));
+   res.sendFile(path.join(__dirname + '/public', 'index.html'));
 })
 
 //app.use(express.static(path.join(__dirname+ '/public')));
