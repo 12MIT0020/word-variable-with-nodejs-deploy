@@ -1,0 +1,61 @@
+<html >
+<head>
+  
+      <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+  crossorigin="anonymous"></script>
+</head>
+<body id="appId">
+<div class="flex layout-column pad-box-10 profile-container" ng-controller="WordVariableController as WordVariableCtrl" ng-init="WordVariableCtrl.init()">
+
+  <div class="layout-row">
+    <button class="ms-Button ms-Button--primary" ng-click="WordVariableCtrl.getSelectedWordFromDocument ()">
+        <span class="ms-Button-label">Create Variable</span>
+      </button>
+  </div>
+
+  <div class="layout-row">
+    <div class="layout-column">
+      <div ng-if="WordVariableCtrl.inputBoxObjects.length > 0" class="layout-row flex layout-align-start-center margin-d-10" id="innerDiv" data-ng-repeat="inputBox in WordVariableCtrl.inputBoxObjects">
+        <label class="ms-Label margin-r-10" for="{{inputBox.id}}" style="width:40%;overflow: hidden;display: inline-block;
+    }
+    }
+    text-overflow: ellipsis;white-space: nowrap;">{{inputBox.label}}</label>
+        <input type="text" name="" placeholder="Enter value" value="{{inputBox.value}}" id={{inputBox.id}} ng-blur="WordVariableCtrl.populateWordVar(inputBox,$event,$index)" class="ms-TextField-field flex flex-rem send-email-input">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <script src="witty-word-module.js"></script>
+ <script src="witty-word-variable.controller.js"></script>
+ 
+ <script type="text/javascript">
+  console.log('script test');
+
+  Office.initialize = function () {
+console.log('script init');
+   //load angular app after office has been initialized
+   // $.getScript('witty-word-variable.controller.js', function () {
+    // console.log('got file');
+       // $.getScript('app.js', function () {
+           // $.getScript('controllers.js', function () {
+
+               //manually start angular application
+               angular.bootstrap($('#appId'), ['wpoffice']);
+
+           // });
+       // });
+   // });
+
+}
+
+</script>
+
+</body>
+</html>

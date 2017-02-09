@@ -1,0 +1,12 @@
+{
+  "name": "test-addin",
+  "version": "1.0.0",
+  "description": "This sample writes user-specified text to a custom XML part that is bound to a content control within a Word 2013 document.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
