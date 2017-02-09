@@ -1,7 +1,7 @@
 var express = require('express')
 var path = require('path')
 var fs = require('fs')
-var https = require('https')
+var http = require('http')
 var app = express()
 var port = process.env.PORT || 3000; 
 
@@ -16,10 +16,16 @@ var port = process.env.PORT || 3000;
 //console.log(__dirname);
 //app.use('/public',express.static(path.join(__dirname, 'public/')));
 app.use(express.static(path.join(__dirname, 'public')));
-   http.createServer({
-      //key: fs.readFileSync('ssl/83507518-localhost_3009.key'),
-      //cert: fs.readFileSync('ssl/83507518-localhost_3009.cert')
-    }, app).listen(process.env.PORT || 3000, function(){
+   http.createServer(function (request, response) {
+
+   // Send the HTTP header 
+   // HTTP Status: 200 : OK
+   // Content Type: text/plain
+   response.writeHead(200);
+   
+   // Send the response body as "Hello World"
+   response.end('Hello World\n');
+}, app).listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
