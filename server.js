@@ -3,6 +3,7 @@ var path = require('path')
 var fs = require('fs')
 var https = require('https')
 var app = express()
+var port = process.env.PORT || 3000; 
 
 //console.log (__dirname);	
 		
@@ -20,5 +21,5 @@ app.use(express.static(path.join(__dirname, 'public')));
    https.createServer({
       key: fs.readFileSync('ssl/83507518-localhost_3009.key'),
       cert: fs.readFileSync('ssl/83507518-localhost_3009.cert')
-    }, app).listen(55555);
+    }, app).listen(port);
 
