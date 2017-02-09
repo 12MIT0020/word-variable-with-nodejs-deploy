@@ -16,11 +16,9 @@ var port = process.env.PORT || 3000;
 //console.log(__dirname);
 //app.use('/public',express.static(path.join(__dirname, 'public/')));
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-   https.createServer({
-      key: fs.readFileSync('ssl/83507518-localhost_3009.key'),
-      cert: fs.readFileSync('ssl/83507518-localhost_3009.cert')
+   http.createServer({
+      //key: fs.readFileSync('ssl/83507518-localhost_3009.key'),
+      //cert: fs.readFileSync('ssl/83507518-localhost_3009.cert')
     }, app).listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
